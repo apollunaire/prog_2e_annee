@@ -1,4 +1,8 @@
 def divEntier(x: int, y: int) -> int:
+    if y < 0 or x < 0:
+        raise ValueError("nombre")
+    if y == 0:
+        raise ValueError("nul")
     if x < y:
         return 0
     else:
