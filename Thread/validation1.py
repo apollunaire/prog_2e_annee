@@ -31,7 +31,7 @@ def threadingT():
     t1.join() # j'attends la fin de la thread
     t2.join() # j'attends la fin de la thread
     end = time.perf_counter()
-    print(f"THREADING T - Tasks ended in {round(end - start, 2)} second(s)")
+    #print(f"THREADING T - Tasks ended in {round(end - start, 2)} second(s)")
     return round(end - start, 2)
 
 
@@ -40,7 +40,7 @@ def pool():
     with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(download_image1, img_urls)
         end = time.perf_counter()
-        print(f"POOL - Tasks ended in {round(end - start, 2)} second(s)")
+        #print(f"POOL - Tasks ended in {round(end - start, 2)} second(s)")
     return round(end - start, 2)
 
 
@@ -51,18 +51,22 @@ def multiprocess():
     p1.start()
     p2.start()
     end = time.perf_counter()
-    print(f"MULTIPROCESS - Tasks ended in {round(end - start, 2)} second(s)")
+    #print(f"MULTIPROCESS - Tasks ended in {round(end - start, 2)} second(s)")
     return round(end - start, 2)
 
 
 def test(x):
     t, p, m = [], [], [] #stockage valeurs
-    t.append(threadingT())
-    p.append(pool())
-    m.append(multiprocess())
-    tt = statistics.mean(t) #valeur moyenne
-    pp = statistics.mean(p)
-    mm = statistics.mean(m)
-    statistics.stdev(list(dict[0])) #écart type
+    for k in range(x):
+        t.append(threadingT())
+        p.append(pool())
+        m.append(multiprocess())
+    print(f"le temps moyen d'execution de la fonction 1 est de {statistics.mean(t)}s\n{t}\nl'écart type est de {round(statistics.stdev(t), 2)}s\n") #valeur moyenne
+    print(f"le temps moyen d'execution de la fonction 2 est de {statistics.mean(p)}s\n{p}\nl'ecart type est de {round(statistics.stdev(p), 2)}s\n")
+    print(f"le temps moyen d'execution de la fonction 3 est de {statistics.mean(m)}s\n{m}\n l'écart type est de {round(statistics.stdev(m), 2)}s\n")
     return 0
 
+if __name__=='__main__':
+    x = int(input("nombre de tests"))
+    test(x)
+    sys.exit()

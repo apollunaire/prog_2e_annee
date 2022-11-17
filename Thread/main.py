@@ -13,6 +13,7 @@ if __name__ == '__main__':
         except IndexError:
             print("pb d'index")
         else:
-            print(nb)
+            print(f"les programmes vont etre executes {nb} fois")
+            print("...")
             print(test(nb))
     sys.exit()
