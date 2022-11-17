@@ -1,7 +1,7 @@
 
 def ouverture(file):
-    f = open(file, 'r')
     try:
+        f = open(file, 'r')
         with f as txtfile:
             line = txtfile.readline()
             print(line)
@@ -11,6 +11,5 @@ def ouverture(file):
     except IOError:
         print("IOError")
     else:
-        return "oof"
+        return 0
 
-print(ouverture("main.py"))
