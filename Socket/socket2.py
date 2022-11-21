@@ -7,7 +7,7 @@ def socket_serveur():
         #tcpSvr = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #creation socket en TCP
         server_socket = socket.socket()  #creation de la socket
         host = "localhost"
-        port = socket.gethostname() #adresse IP ?
+        #port = socket.gethostname() #adresse IP ?
         port = 10001
         server_socket.bind((host, port))  #association du host et du port
         server_socket.listen(1)  #attente de la connexion / ici pas de connexions simultanees
@@ -32,10 +32,12 @@ def socket_serveur():
             if data == "exit":
                 break
         conn.close() #fermeture connexion
-    except (TimeoutError):
+    except (TimeoutError, ConnectionRefusedError, socket.gaierror, ConnectionResetError, BrokenPipeError) as err:
+        print(f"ERREUR - {err}")
         return -1
         #server_socket.connect_ex("") #à tester ? // fermeture connexion hote specifie ?
         #conn.connect_ex(address) #à tester ? // fermeture de la connexion avec l'hote specifie ?
+
 
 
 (socket_serveur())

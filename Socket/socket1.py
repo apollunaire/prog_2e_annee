@@ -18,10 +18,9 @@ def socket_client():
             message = input("message2 a envoyer : ")  # entree du message a envoyer
 
         client_socket.send(message.encode()) #envoi du message
-        #data = client_socket.recv(1024).decode() #reception de donnees
-        #print(data) #affichage des donnees recues
         client_socket.close() #fermeture de la connexion / du port
-    except (TimeoutError):
+    except (TimeoutError, ConnectionRefusedError, socket.gaierror, ConnectionResetError, BrokenPipeError) as err:
+        print(f"ERREUR - {err}")
         return -1
 
 
