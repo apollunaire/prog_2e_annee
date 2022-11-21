@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout, QLabel
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout, QLabel, QMenu
 from PyQt5.QtGui import QPalette, QColor
 from PyQt5.QtCore import Qt
 
@@ -26,13 +26,24 @@ class MainWindow(QMainWindow):
         layout = QGridLayout()
 
         layout.addWidget(Color('black'), 0, 0, 0, 0)
-        layout.addWidget(Color('green'), 1, 0, 1, 0)
-        #layout.addWidget(Color('blue'), 1, 1, 0, 0)
-        #layout.addWidget(Color('purple'), 2, 1, 0, 0)
+        layout.addWidget(Color('green'), 1, 1, 1, 1)
+        layout.addWidget(Color('blue'), 0, 0, 1, 1)
+        layout.addWidget(Color('purple'), 1, 0, 1, 1)
+        layout.addWidget(Color('yellow'), 0, 1, 1, 1)
 
         widget = QWidget()
         widget.setLayout(layout)
         self.setCentralWidget(widget)
+        self.__createMenuBar()
+
+    def __createMenuBar(self):
+        menuBar = self.menuBar()
+        # Creating menus using a QMenu object
+        fileMenu = QMenu("&File")
+        menuBar.addMenu(fileMenu)
+        # Creating menus using a title
+        editMenu = menuBar.addMenu("&Edit")
+        helpMenu = menuBar.addMenu("&Help")
 
 
 

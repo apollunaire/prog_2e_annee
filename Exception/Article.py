@@ -2,10 +2,13 @@
 
 class Article():
     TVA = 20
-    def __init__(self, nom: str = 'sans nom', code_barre: int(8) = 00000000, prix_HT: float = 0.0):
+    def __init__(self, nom: str = 'sans nom', code_barre: int = 11111111, prix_HT: float = 0.0):
         self.__nom = nom
         self.__code_bare = code_barre
         self.__prix_HT = prix_HT
+
+    def __str__(self):
+        return f"{self.nom}, {self.code_bare}, {self.prix_HT}€ (HT)"
 
     @property
     def nom(self):

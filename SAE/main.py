@@ -1,39 +1,34 @@
 import sys
 import os
 import subprocess
+import platform
+import psutil
 
-class Fonctionnalites:
-    def __init__(self):
-        test = 1
+def get_OS_() -> str:
+    return platform.system()
 
-    def get_OS(self):
-        cmd = "ping -c 3 8.8.8.8"
-        shellcmd = os.popen(cmd)
-        print(shellcmd.read())
-        cmd = ['ping', '-c', '3', '8.8.8.8']
-        shell_cmd = subprocess.run((cmd))
-        print(shell_cmd)
+def get_CPU() -> str:
+    return psutil.cpu_percent()
 
-def get_OS():
-     cmd = "ping 8.8.8.8"
-     shellcmd = os.popen(cmd)
-     print(shellcmd.read())
-     """cmd = ['ping', '8.8.8.8']
-     shell_cmd = subprocess.run((cmd))
-     print(shell_cmd)"""
-def get_OS_():
-    os.system()
-    cmd = ['ping', '8.8.8.8']
-    shell_cmd = subprocess.run((cmd), capture_output=True, text=True)
-    command_output = (shell_cmd.stdout)
-    print(command_output)
+def get_mem_utilisee() -> str:
+    return psutil.virtual_memory().percent
 
+def get_mem_restante() -> str:
+    return psutil.virtual_memory().available
+
+def get_mem_totale() -> str:
+    return 0
+
+def get_IP() -> str:
+    return 0
+
+def get_hostname() -> str:
+    return 0
 
 if __name__=='__main__':
-    os.system("ping 8.8.8.8")
-    os.system()
-    #os.name
-    #print(os.uname())
-    """get_OS()
-    get_OS_()"""
+    print(f"OS : {get_OS_()}")
+    print(f"CPU : {get_CPU()}%")
+    print(f"mémoire utilisée : {get_mem_utilisee()}%")
+    print(f"mémoire restante : {get_mem_restante()}")
+
     sys.exit()
