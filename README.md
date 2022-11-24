@@ -9,3 +9,7 @@
 - thread2.py : deuxième programme du cours
 - thread3.py : troisième programme du cours
 - validation1 : programme de validation de la partie Thread
+
+**SAE**
+- essai.py : connexion socket
+- GUI.py : insterface graphique
