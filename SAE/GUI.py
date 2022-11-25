@@ -4,7 +4,8 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QMenu, QMenuBar, QWidget
 from PyQt5.QtGui import QPalette, QColor
 
-
+#stack
+#label : texte non modifiable
 class Window(QMainWindow):
     """Main Window."""
 
