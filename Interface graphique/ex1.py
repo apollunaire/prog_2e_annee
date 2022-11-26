@@ -29,6 +29,7 @@ class MainWindow(QMainWindow):
         ok.clicked.connect(self.__actionOk)
         quit.clicked.connect(self.__actionQuitter)
         self.setWindowTitle("Une première fenêtre")
+        self.resize(350, 100)
 
     def __actionOk(self):
         texte_a_copier = self.__texte.text()
