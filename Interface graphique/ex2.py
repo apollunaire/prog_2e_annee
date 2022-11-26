@@ -82,10 +82,6 @@ class MainWindow(QMainWindow):
         self.__msgb.open()
         self.__msgb.window()
 
-
-
-
-
     def __testValeur(self):
         val = self.__choix.currentText()
         if val == self.__liste[1]:

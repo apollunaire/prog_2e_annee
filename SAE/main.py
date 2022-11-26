@@ -12,6 +12,9 @@ def get_OS() -> str: #ajouter type d'OS
 def get_CPU() -> str:
     return psutil.cpu_percent()
 
+def get_nom():
+    return "test nom"
+
 def get_RAM():
     mem_util = psutil.virtual_memory().percent
     mem_res = psutil.virtual_memory().available
