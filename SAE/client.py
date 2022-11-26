@@ -48,8 +48,8 @@ def client():
 
 
     print(" " * 20 + "****** Client Elranet, bienvenue. ******\n\n\n" + " " * 20)
-    hote = input(" " * 21 + "Entrez le nom de l'hôte > ")
-    port = int(input(" " * 21 + "Entrez le port (50000 par défault) > "))
+    #hote = input(" " * 21 + "Entrez le nom de l'hôte > ")
+    #port = int(input(" " * 21 + "Entrez le port (50000 par défault) > "))
     print("\n")
     print("_" * 80 + "|/-\\" * (81 // 4) + "|   " * (81 // 4))
 
@@ -62,6 +62,8 @@ def client():
     afficher("Architecture Processeur ", jeu)
     afficher("Version      Système    ", distribution)
     afficher("Version      Python     ", python)
+    hote = "localhost"
+    port = 50004
 
     connexion_avec_serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     connexion_avec_serveur.connect((hote, port))
