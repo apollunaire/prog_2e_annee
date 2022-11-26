@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="tp GUI">
-      <change afterPath="$PROJECT_DIR$/SAE/import_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/client.py" afterDir="false" />
-    </list>
+    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669452405324</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="SAE">
+      <created>1669457477831</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669457477831</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,6 +190,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="tp GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="tp GUI" />
+    <MESSAGE value="SAE" />
+    <option name="LAST_COMMIT_MESSAGE" value="SAE" />
   </component>
 </project>
