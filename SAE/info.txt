@@ -1,0 +1,9 @@
+while msg != "kill":
+    ouverture socket
+    while msg != "kill" and msg != "reset":
+        accept
+        while msg != "kill" and msg != "reset" and msg != "disconnect":
+
+        receive/send
+    client_close
+server close

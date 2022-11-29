@@ -1,10 +1,10 @@
 import socket
 
 
-def socket_serveur():
+def socket_serveur_asynchrone():
     try:
         message = ""
-        while (message.lower() != "exit"):
+        while message.lower() != "exit":
             #udpSvr = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) #creation socket en UDP
             #tcpSvr = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #creation socket en TCP
             server_socket = socket.socket()  #creation de la socket
@@ -20,7 +20,7 @@ def socket_serveur():
             message.lower()
             print(message)  #affichage de data
             #reply = input("message à envoyer : ")  # entree de la reponse
-            while (message.lower() != "bye") and (message.lower() != "exit"):
+            while (message != "bye") and (message != "exit"):
                 reply = input("message à envoyer : ")  # entree de la reponse
                 conn.send(reply.encode())  # envoi de la reponse
 
@@ -29,13 +29,11 @@ def socket_serveur():
                 print(data)  # affichage de data
 
             """if message == "exit":
-                conn.connect_ex((host, port))
-            if message == "exit":
+                conn.connect_ex((host, port))"""
+            """if message == "exit":
                 break"""
-
-        server_socket.close() #fermeture connexion
-
-    except (TimeoutError, ConnectionRefusedError, socket.gaierror, ConnectionResetError, BrokenPipeError, KeyboardInterrupt) as err:
+        conn.close() #fermeture connexion
+    except (TimeoutError, ConnectionRefusedError, socket.gaierror, ConnectionResetError, BrokenPipeError) as err:
         print(f"ERREUR - {err}")
         return -1
         #server_socket.connect_ex("") #à tester ? // fermeture connexion hote specifie ?
@@ -43,4 +41,4 @@ def socket_serveur():
 
 
 
-(socket_serveur())
+(socket_serveur_asynchrone())

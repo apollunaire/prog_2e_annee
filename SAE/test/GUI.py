@@ -1,7 +1,7 @@
 import sys
-from SAE.main import get_OS, get_RAM, get_CPU, get_IP, get_hostname
+from SAE.main import get_OS, get_RAM, get_CPU, get_IP, get_hostname, disconnect, kill, reset
 from PyQt5.QtCore import Qt, QCoreApplication, QFile
-from PyQt5.QtWidgets import QApplication, QTextEdit, QFileDialog, QComboBox, QLabel, QMainWindow, QSpinBox, QMenu, QMenuBar, QWidget, QGridLayout, QLineEdit, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QApplication, QVBoxLayout, QGraphicsWidget, QTextEdit, QFileDialog, QComboBox, QLabel, QMainWindow, QSpinBox, QMenu, QMenuBar, QWidget, QGridLayout, QLineEdit, QPushButton, QMessageBox
 from PyQt5.QtGui import QPalette, QColor
 import subprocess
 import os
@@ -21,6 +21,7 @@ class Color(QWidget):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.__createMenuBar()
         widget = QWidget()
         self.setCentralWidget(widget)
         self.__txtChoixM = QLabel("Séléctionner la machine :")
@@ -49,22 +50,21 @@ class MainWindow(QMainWindow):
         self.__colorBack = Color("Grey")
 
 
-
-
-
-
         self.__msgb =QMessageBox()
-        self.__msgb.setText("Permet de convertir un nombre de Kelvin en °C ou de °C en Kelvin.")
         self.__msgb.setWindowTitle("Aide")
+        self.__msgb.setText(" "*31 + "Monitoring de serveurs" + " "*31)
         self.__msgb.adjustSize()
+
+
+        #self.setLayout(layout)
 
 
         grid = QGridLayout()
         widget.setLayout(grid)
 
-        # Ajouter les composants au grid ayout
-        #grid.addWidget(self.__colorBack, 0, 0, 17, 13)
-        #couleur de fond : (jeu sur l'ordre d'appel pour avoir la bonne superposition)
+        #composants layout
+            #grid.addWidget(self.__colorBack, 0, 0, 17, 13)
+            #couleur de fond : (jeu sur l'ordre d'appel pour avoir la bonne superposition)
         grid.addWidget(self.__txtChoixM, 0, 1, 1, 3)
         grid.addWidget(self.__txtCmm, 0, 6, 1, 3)
         grid.addWidget(self.__txtImport, 0, 9, 1, 3)
@@ -84,9 +84,10 @@ class MainWindow(QMainWindow):
         grid.addWidget(self.__bKill, 16, 9, 1, 2)
         grid.addWidget(self.__bInfo, 16, 11)
         grid.addWidget(self.__bExec, 2, 6, 1, 3)
+        #grid.addWidget(self.__test, 0, 0, 1, 1)
 
 
-
+        #gestion des actions pour les boutons
         self.__bCPU.clicked.connect(self.__actionCPU)
         self.__bOS.clicked.connect(self.__actionOS)
         self.__bALL.clicked.connect(self.__actionALL)
@@ -94,11 +95,30 @@ class MainWindow(QMainWindow):
         self.__bRAM.clicked.connect(self.__actionRAM)
         self.__bName.clicked.connect(self.__actionName)
         self.__bExec.clicked.connect(self.__actionCMM)
+        self.__bInfo.clicked.connect(self.__actionhelp)
+
+        self.__bReset.clicked.connect(self.__actionReset)
+        self.__bDisc.clicked.connect(self.__actionDis)
+        self.__bKill.clicked.connect(self.__actionKill)
+
         #self.__choix.currentIndexChanged.connect(self.__testValeur)
+
+
+        #reglages fenêtre
         self.setWindowTitle("Monitoring")
         self.resize(800, 500)
         #self.__testValeur()
-        #self.__testb.clicked.connect(self.__actionhelp)
+
+
+    def __createMenuBar(self):
+        menuBar = self.menuBar()
+        # Creating menus using a QMenu object
+        fileMenu = QMenu("&File")
+        menuBar.addMenu(fileMenu)
+        # Creating menus using a title
+        editMenu = menuBar.addMenu("&Edit")
+        helpMenu = menuBar.addMenu("&Help")
+
 
     def __actionCPU(self):
         self.__sortieB.setText(f"{get_CPU()}")
@@ -116,6 +136,19 @@ class MainWindow(QMainWindow):
                                 f"CPU : \n{get_CPU()}\n"
                                 f"IP : \n{get_IP()}\n"
                                 f"Nom : \n{get_hostname()}\n")
+
+    def __actionDis(self):
+        val = self.__choixM.currentText()
+        disconnect(val)
+
+    def __actionKill(self):
+        val = self.__choixM.currentText()
+        kill(val)
+
+    def __actionReset(self):
+        val = self.__choixM.currentText()
+        reset(val)
+
 
     def __actionCMM(self):
         val = self.__entreeCmm.text()

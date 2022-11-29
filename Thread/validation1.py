@@ -61,9 +61,9 @@ def test(x):
         t.append(threadingT())
         p.append(pool())
         m.append(multiprocess())
-    print(f"le temps moyen d'execution de la fonction 1 est de {statistics.mean(t)}s\n{t}\nl'écart type est de {round(statistics.stdev(t), 2)}s\n") #valeur moyenne
-    print(f"le temps moyen d'execution de la fonction 2 est de {statistics.mean(p)}s\n{p}\nl'ecart type est de {round(statistics.stdev(p), 2)}s\n")
-    print(f"le temps moyen d'execution de la fonction 3 est de {statistics.mean(m)}s\n{m}\n l'écart type est de {round(statistics.stdev(m), 2)}s\n")
+    print(f"le temps moyen d'execution de la fonction 1 est de {round(statistics.mean(t), 3)}s\n{t}\nl'écart type est de {round(statistics.stdev(t), 2)}s\n") #valeur moyenne
+    print(f"le temps moyen d'execution de la fonction 2 est de {round(statistics.mean(p), 3)}s\n{p}\nl'ecart type est de {round(statistics.stdev(p), 2)}s\n")
+    print(f"le temps moyen d'execution de la fonction 3 est de {round(statistics.mean(m), 3)}s\n{m}\n l'écart type est de {round(statistics.stdev(m), 2)}s\n")
     return 0
 
 if __name__=='__main__':

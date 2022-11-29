@@ -27,6 +27,23 @@ def get_IP() -> str:
 def get_hostname() -> str:
     return f"\t{socket.gethostname()}"
 
+def disconnect(m:str):
+    k = f"disconnect {m}"
+    print(k)
+    return (f"envoi commande : {k}")
+
+def kill(m:str):
+    k = f"kill {m}"
+    print(k)
+    return (f"envoi commande : {k}")
+
+def reset(m:str):
+    k = f"reset {m}"
+    print(k)
+    return (f"envoi commande : {k}")
+
+
+
 if __name__=='__main__':
     print(f"OS : {get_OS()}")
     print(f"CPU : {get_CPU()}")

@@ -1,9 +1,9 @@
 import socket
 
-def socket_client():
+def socket_client_asynchrone():
     try :
         message = ""
-        while (message.lower() != "bye") and (message.lower() != "exit"):
+        while (message != "bye" and message!="exit"):
             client_socket = socket.socket() #creation de la socket
             hostname = socket.gethostname() #recuperation du hostname
             print(hostname) #affichage hostname
@@ -13,7 +13,7 @@ def socket_client():
             print("CLIENT")
             message = input("message a envoyer : ")  # entree du message a envoyer
             message.lower()
-            while (message.lower()!="bye") and (message.lower()!="exit"):
+            while (message!="bye") and (message!="exit"):
                 client_socket.send(message.encode())  # envoi du message
                 data = client_socket.recv(1024).decode()  # reception de donnees
                 print(data)  # affichage des donnees recues
@@ -21,11 +21,11 @@ def socket_client():
 
             client_socket.send(message.encode()) #envoi du message
         client_socket.close() #fermeture de la connexion / du port
-    except (TimeoutError, ConnectionRefusedError, socket.gaierror, ConnectionResetError, BrokenPipeError, KeyboardInterrupt) as err:
+    except (TimeoutError, ConnectionRefusedError, socket.gaierror, ConnectionResetError, BrokenPipeError) as err:
         print(f"ERREUR - {err}")
         return -1
 
 
-(socket_client())
+(socket_client_asynchrone())
 
 # cd "C:/Users/tipha/Documents/IUT COLMAR/R309/prog_2e_annee/Socket/"
