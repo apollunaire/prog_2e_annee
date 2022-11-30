@@ -7,3 +7,11 @@ while msg != "kill":
         receive/send
     client_close
 server close
+
+
+Fichier CSV :
+IP;port
+nom;port
+
+IP
+nom

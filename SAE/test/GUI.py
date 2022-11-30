@@ -1,9 +1,10 @@
 import sys
 from SAE.main import get_OS, get_RAM, get_CPU, get_IP, get_hostname, disconnect, kill, reset
 from PyQt5.QtCore import Qt, QCoreApplication, QFile
-from PyQt5.QtWidgets import QApplication, QVBoxLayout, QGraphicsWidget, QTextEdit, QFileDialog, QComboBox, QLabel, QMainWindow, QSpinBox, QMenu, QMenuBar, QWidget, QGridLayout, QLineEdit, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QCheckBox, QFileIconProvider, QApplication, QVBoxLayout, QGraphicsWidget, QTextEdit, QFileDialog, QComboBox, QLabel, QMainWindow, QSpinBox, QMenu, QMenuBar, QWidget, QGridLayout, QLineEdit, QPushButton, QMessageBox
 from PyQt5.QtGui import QPalette, QColor
 import subprocess
+import csv
 import os
 
 
@@ -40,7 +41,7 @@ class MainWindow(QMainWindow):
         self.__bALL = QPushButton("ALL INFO")
         self.__sortieB = QTextEdit("")
         self.__sortieB.setDisabled(True)
-        self.__sortieCmm = QLineEdit("")
+        self.__sortieCmm = QTextEdit("")
         self.__sortieCmm.setDisabled(True)
         self.__bKill = QPushButton("KILL")
         self.__bDisc = QPushButton("DISCONNECT")
@@ -48,12 +49,27 @@ class MainWindow(QMainWindow):
         self.__bInfo = QPushButton("?")
         self.__bExec = QPushButton("->")
         self.__colorBack = Color("Grey")
+        self.__bfile = QPushButton("Choisir un fichier")
+        self.__filename = QFileDialog()
+        self.__filename.setFileMode(QFileDialog.AnyFile)
+        self.__filename.setNameFilter("*.csv")
+        self.__file = QLineEdit("")
+        self.__file.setDisabled(True)
+        self.__bOK = QPushButton("OK")
+
+        #self.__filename.getOpenFileName() #ouvre le menu pour choisir le fichier
+        #self.__filename.selectedFiles()
 
 
         self.__msgb =QMessageBox()
         self.__msgb.setWindowTitle("Aide")
         self.__msgb.setText(" "*31 + "Monitoring de serveurs" + " "*31)
         self.__msgb.adjustSize()
+
+        grid2 = QGridLayout()
+        self.__test = QMessageBox()
+        self.__test.setWindowTitle("Choix fichier CSV")
+        self.__test.setLayout(grid2)
 
 
         #self.setLayout(layout)
@@ -67,11 +83,11 @@ class MainWindow(QMainWindow):
             #couleur de fond : (jeu sur l'ordre d'appel pour avoir la bonne superposition)
         grid.addWidget(self.__txtChoixM, 0, 1, 1, 3)
         grid.addWidget(self.__txtCmm, 0, 6, 1, 3)
-        grid.addWidget(self.__txtImport, 0, 9, 1, 3)
+        #grid.addWidget(self.__txtImport, 0, 9, 1, 3)
         grid.addWidget(self.__choixM, 1, 1, 1, 3)
         grid.addWidget(self.__entreeCmm, 1, 6, 1, 3)
-        grid.addWidget(self.__upload, 3, 9, 1, 3)
-        grid.addWidget(self.__sortieCmm, 3, 6, 1, 3)
+        #grid.addWidget(self.__upload, 3, 9, 1, 3)
+        grid.addWidget(self.__sortieCmm, 4, 6, 11, 6)
         grid.addWidget(self.__bOS, 4, 1, 1, 3)
         grid.addWidget(self.__bRAM, 5, 1, 1, 3)
         grid.addWidget(self.__bCPU, 6, 1, 1, 3)
@@ -84,7 +100,11 @@ class MainWindow(QMainWindow):
         grid.addWidget(self.__bKill, 16, 9, 1, 2)
         grid.addWidget(self.__bInfo, 16, 11)
         grid.addWidget(self.__bExec, 2, 6, 1, 3)
-        #grid.addWidget(self.__test, 0, 0, 1, 1)
+        grid.addWidget(self.__bfile, 1, 9, 1, 2)
+        grid.addWidget(self.__bOK, 1, 11, 1, 1)
+        grid.addWidget(self.__file, 2, 9, 1, 3)
+
+        grid2.addWidget(self.__filename, 0, 0)
 
 
         #gestion des actions pour les boutons
@@ -100,7 +120,8 @@ class MainWindow(QMainWindow):
         self.__bReset.clicked.connect(self.__actionReset)
         self.__bDisc.clicked.connect(self.__actionDis)
         self.__bKill.clicked.connect(self.__actionKill)
-
+        self.__bfile.clicked.connect(self.__actionFile)
+        self.__bOK.clicked.connect(self.__actionOK)
         #self.__choix.currentIndexChanged.connect(self.__testValeur)
 
 
@@ -121,57 +142,104 @@ class MainWindow(QMainWindow):
 
 
     def __actionCPU(self):
-        self.__sortieB.setText(f"{get_CPU()}")
+        m = self.__choixM.currentText()
+        self.__sortieB.setText(f"{get_CPU(m)}")
     def __actionRAM(self):
-        self.__sortieB.setText(f"{get_RAM()}")
+        m = self.__choixM.currentText()
+        self.__sortieB.setText(f"{get_RAM(m)}")
     def __actionIP(self):
-        self.__sortieB.setText(f"{get_IP()}")
+        m = self.__choixM.currentText()
+        self.__sortieB.setText(f"{get_IP(m)}")
     def __actionOS(self):
-        self.__sortieB.setText(f"{get_OS()}")
+        m = self.__choixM.currentText()
+        self.__sortieB.setText(f"{get_OS(m)}")
     def __actionName(self):
-        self.__sortieB.setText(f"{get_hostname()}")
+        m = self.__choixM.currentText()
+        self.__sortieB.setText(f"{get_hostname(m)}")
     def __actionALL(self):
-        self.__sortieB.setText(f"OS : \n{get_OS()}\n"
-                                f"RAM : \n{get_RAM()}\n"
-                                f"CPU : \n{get_CPU()}\n"
-                                f"IP : \n{get_IP()}\n"
-                                f"Nom : \n{get_hostname()}\n")
+        m = self.__choixM.currentText()
+        self.__sortieB.setText(f"OS : \n{get_OS(m)}\n"
+                                f"RAM : \n{get_RAM(m)}\n"
+                                f"CPU : \n{get_CPU(m)}\n"
+                                f"IP : \n{get_IP(m)}\n"
+                                f"Nom : \n{get_hostname(m)}\n")
 
     def __actionDis(self):
-        val = self.__choixM.currentText()
-        disconnect(val)
+        m = self.__choixM.currentText()
+        disconnect(m)
 
     def __actionKill(self):
-        val = self.__choixM.currentText()
-        kill(val)
+        m = self.__choixM.currentText()
+        kill(m)
 
     def __actionReset(self):
-        val = self.__choixM.currentText()
-        reset(val)
+        m = self.__choixM.currentText()
+        reset(m)
 
 
     def __actionCMM(self):
         val = self.__entreeCmm.text()
         n = [True for k in val if k == ":"]
-        if n==[True]:
+        if n == [True]:
             l = (val.split(":", 1))
-            shell = l.pop(0)
-            cmm = l.pop(0)
+            shell = l[0]
+            tmp = str(l[1:])
+            cmm = tmp[2:-2]
+            print(cmm)
             k=f"{shell};{cmm}"
             process = subprocess.Popen(k, stdout=subprocess.PIPE, shell=True)
-            proc_stdout = process.communicate()[0].strip()
-            self.__sortieCmm.setText(f"{proc_stdout}")
+            proc_stdout = process.communicate()[0] #[0].strip()
+            tmp = str(proc_stdout)
+            #print(tmp)
+            final = tmp[4:-1]
+            #print(f" TEST - {final}")
+            k = final.splitlines(True)
+            self.__sortieCmm.setText(f"{k}") #probblème d'affichage
         else:
             cmm = subprocess.Popen(val, stdout=subprocess.PIPE, shell=True)
-            proc_stdout = cmm.communicate()[0].strip()
+            proc_stdout = cmm.communicate()[0] #[0].strip() | [0]: resultat renvoyé sous forme de liste donc on prend le premier element
             self.__sortieCmm.setText(f"{proc_stdout}")
 
     def __actionhelp(self):
         self.__msgb.open()
         self.__msgb.window()
 
+    def __actionFile(self):
+        self.__filename.open()
+        self.__filename.window()
+        """f = self.__filename.selectedFiles()
+        self.__file.setText(f"{str(f)}")"""
+
+    def __actionOK(self):
+        f = str(self.__filename.selectedFiles())
+        file = f[2:-2]
+        #print(file)
+        self.__file.setText(f"{str(file)}")
+        self.__lectureCSV()
+
     def __actionQuitter(self):
         QCoreApplication.exit(0)
+
+
+    def __lectureCSV(self):
+        f = str(self.__filename.selectedFiles())
+        file = f[2:-2]
+        try:
+            if f != "[]":
+                self.__liste.clear()
+                with open(f"{file}", newline='\n') as csvfile:
+                    spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+                    for row in spamreader:
+                        self.__liste.append(row[0])
+                        print(row)
+                self.__choixM.clear()
+                self.__choixM.addItems(self.__liste)
+                return 0
+            else:
+                raise FileNotFoundError ("ERR - il n'y a pas de fichier sélectionné")
+        except (FileNotFoundError, FileExistsError):
+            self.__file.setText("ERR - le fichier n'a pas été trouvé")
+            return -1
 
 
 if __name__ == '__main__':
