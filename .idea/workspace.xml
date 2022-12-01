@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="TD SAE">
+    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE GUI (import file)">
+      <change afterPath="$PROJECT_DIR$/SAE/test/serv_client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SAE/test/serv_monitor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE/info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/info.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SAE/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SAE/test/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/GUI.py" afterDir="false" />
     </list>
@@ -211,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669715604042</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="SAE GUI (import file)">
+      <created>1669803055295</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669803055295</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,6 +239,7 @@
     <MESSAGE value="tp GUI" />
     <MESSAGE value="SAE" />
     <MESSAGE value="TD SAE" />
-    <option name="LAST_COMMIT_MESSAGE" value="TD SAE" />
+    <MESSAGE value="SAE GUI (import file)" />
+    <option name="LAST_COMMIT_MESSAGE" value="SAE GUI (import file)" />
   </component>
 </project>

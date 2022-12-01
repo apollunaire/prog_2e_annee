@@ -4,7 +4,11 @@ import psutil
 import socket
 
 def get_OS(m:str) ->str:
-    return f"\t{platform.uname().system} {platform.uname().release}"
+    platform.system()
+    platform.release()
+    #platform.uname().system
+    #platform.uname().release
+    return f"\t{platform.system()} {platform.release()}"
 
 
 def get_CPU(m:str) -> str:

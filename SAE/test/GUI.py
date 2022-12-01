@@ -57,6 +57,7 @@ class MainWindow(QMainWindow):
         self.__file.setDisabled(True)
         self.__bOK = QPushButton("OK")
 
+
         #self.__filename.getOpenFileName() #ouvre le menu pour choisir le fichier
         #self.__filename.selectedFiles()
 
@@ -66,10 +67,10 @@ class MainWindow(QMainWindow):
         self.__msgb.setText(" "*31 + "Monitoring de serveurs" + " "*31)
         self.__msgb.adjustSize()
 
-        grid2 = QGridLayout()
+        """grid2 = QGridLayout()
         self.__test = QMessageBox()
         self.__test.setWindowTitle("Choix fichier CSV")
-        self.__test.setLayout(grid2)
+        self.__test.setLayout(grid2)"""
 
 
         #self.setLayout(layout)
@@ -81,30 +82,30 @@ class MainWindow(QMainWindow):
         #composants layout
             #grid.addWidget(self.__colorBack, 0, 0, 17, 13)
             #couleur de fond : (jeu sur l'ordre d'appel pour avoir la bonne superposition)
-        grid.addWidget(self.__txtChoixM, 0, 1, 1, 3)
-        grid.addWidget(self.__txtCmm, 0, 6, 1, 3)
-        #grid.addWidget(self.__txtImport, 0, 9, 1, 3)
-        grid.addWidget(self.__choixM, 1, 1, 1, 3)
-        grid.addWidget(self.__entreeCmm, 1, 6, 1, 3)
-        #grid.addWidget(self.__upload, 3, 9, 1, 3)
-        grid.addWidget(self.__sortieCmm, 4, 6, 11, 6)
-        grid.addWidget(self.__bOS, 4, 1, 1, 3)
-        grid.addWidget(self.__bRAM, 5, 1, 1, 3)
-        grid.addWidget(self.__bCPU, 6, 1, 1, 3)
-        grid.addWidget(self.__bIP, 7, 1, 1, 3)
-        grid.addWidget(self.__bName, 8, 1, 1, 3)
-        grid.addWidget(self.__bALL, 9, 1, 1, 3)
-        grid.addWidget(self.__sortieB, 10, 1, 5, 3)
-        grid.addWidget(self.__bDisc, 16, 1, 1, 2)
-        grid.addWidget(self.__bReset, 16, 6, 1, 2)
-        grid.addWidget(self.__bKill, 16, 9, 1, 2)
-        grid.addWidget(self.__bInfo, 16, 11)
-        grid.addWidget(self.__bExec, 2, 6, 1, 3)
-        grid.addWidget(self.__bfile, 1, 9, 1, 2)
-        grid.addWidget(self.__bOK, 1, 11, 1, 1)
-        grid.addWidget(self.__file, 2, 9, 1, 3)
-
-        grid2.addWidget(self.__filename, 0, 0)
+        grid.addWidget(self.__txtChoixM, 2, 1, 1, 3)
+        grid.addWidget(self.__txtCmm, 2, 6, 1, 3)
+        #grid.addWidget(self.__txtImport, 2, 9, 1, 3)
+        grid.addWidget(self.__choixM, 3, 1, 1, 3)
+        grid.addWidget(self.__entreeCmm, 3, 6, 1, 3)
+        #grid.addWidget(self.__upload, 5, 9, 1, 3)
+        grid.addWidget(self.__sortieCmm, 6, 6, 11, 6)
+        grid.addWidget(self.__bOS, 6, 1, 1, 3)
+        grid.addWidget(self.__bRAM, 7, 1, 1, 3)
+        grid.addWidget(self.__bCPU, 8, 1, 1, 3)
+        grid.addWidget(self.__bIP, 9, 1, 1, 3)
+        grid.addWidget(self.__bName, 10, 1, 1, 3)
+        grid.addWidget(self.__bALL, 11, 1, 1, 3)
+        grid.addWidget(self.__sortieB, 12, 1, 5, 3)
+        grid.addWidget(self.__bDisc, 18, 1, 1, 2)
+        grid.addWidget(self.__bReset, 18, 6, 1, 2)
+        grid.addWidget(self.__bKill, 18, 9, 1, 2)
+        grid.addWidget(self.__bInfo, 18, 11)
+        grid.addWidget(self.__bExec, 4, 6, 1, 3)
+        grid.addWidget(self.__bfile, 3, 9, 1, 2)
+        grid.addWidget(self.__bOK, 3, 11, 1, 1)
+        grid.addWidget(self.__file, 4, 9, 1, 3)
+        #k = grid.addWidget(Color("Grey"), 0, 0,20, 20)
+        #grid.addWidget(self.__filename,  0, 0, 20, 20)
 
 
         #gestion des actions pour les boutons
@@ -176,7 +177,6 @@ class MainWindow(QMainWindow):
         m = self.__choixM.currentText()
         reset(m)
 
-
     def __actionCMM(self):
         val = self.__entreeCmm.text()
         n = [True for k in val if k == ":"]
@@ -197,7 +197,8 @@ class MainWindow(QMainWindow):
             self.__sortieCmm.setText(f"{k}") #probblème d'affichage
         else:
             cmm = subprocess.Popen(val, stdout=subprocess.PIPE, shell=True)
-            proc_stdout = cmm.communicate()[0] #[0].strip() | [0]: resultat renvoyé sous forme de liste donc on prend le premier element
+            proc_stdout = cmm.communicate()[0] #[0].strip()
+            # [0]: resultat renvoyé sous forme de liste donc on prend le premier element
             self.__sortieCmm.setText(f"{proc_stdout}")
 
     def __actionhelp(self):
@@ -207,8 +208,6 @@ class MainWindow(QMainWindow):
     def __actionFile(self):
         self.__filename.open()
         self.__filename.window()
-        """f = self.__filename.selectedFiles()
-        self.__file.setText(f"{str(f)}")"""
 
     def __actionOK(self):
         f = str(self.__filename.selectedFiles())
@@ -220,10 +219,10 @@ class MainWindow(QMainWindow):
     def __actionQuitter(self):
         QCoreApplication.exit(0)
 
-
     def __lectureCSV(self):
         f = str(self.__filename.selectedFiles())
         file = f[2:-2]
+        self.__machines = []
         try:
             if f != "[]":
                 self.__liste.clear()
@@ -231,6 +230,8 @@ class MainWindow(QMainWindow):
                     spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
                     for row in spamreader:
                         self.__liste.append(row[0])
+                        self.__machines.append(row)
+                        print(self.__machines)
                         print(row)
                 self.__choixM.clear()
                 self.__choixM.addItems(self.__liste)
