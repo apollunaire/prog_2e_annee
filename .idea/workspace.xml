@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE GUI (import file)">
-      <change afterPath="$PROJECT_DIR$/SAE/test/serv_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SAE/test/serv_monitor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
+    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE debut socket">
+      <change afterPath="$PROJECT_DIR$/SAE/client_asy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SAE/serv_client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SAE/srv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SAE/test/client_thread.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SAE/test/newGUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SAE/test/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAE/test/serv_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAE/test/serv_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/serv_monitor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/test.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,14 +36,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SAE-3.01/SAE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SAE/test" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\SAE\test" />
       <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\Socket" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\SAE" />
+      <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\SAE\test" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.GUI">
+  <component name="RunManager" selected="Python.newGUI">
     <configuration name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prog_2e_annee" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -61,7 +70,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="client_asy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prog_2e_annee" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,7 +82,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/client.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/client_asy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -82,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="client_thread" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prog_2e_annee" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -90,11 +99,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SAE" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SAE/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/test/client_thread.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -103,7 +112,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="socket1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="newGUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prog_2e_annee" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,11 +120,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Socket" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SAE/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Socket/socket1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/test/newGUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,7 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="validation1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="serv_monitor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prog_2e_annee" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -132,11 +141,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Thread" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SAE/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Thread/validation1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/test/serv_monitor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,11 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.newGUI" />
+        <item itemvalue="Python.client_asy" />
         <item itemvalue="Python.GUI" />
-        <item itemvalue="Python.validation1" />
-        <item itemvalue="Python.socket1" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.client" />
+        <item itemvalue="Python.serv_monitor" />
+        <item itemvalue="Python.client_thread" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669803055295</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="SAE debut socket">
+      <created>1669900443136</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669900443136</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,6 +256,7 @@
     <MESSAGE value="SAE" />
     <MESSAGE value="TD SAE" />
     <MESSAGE value="SAE GUI (import file)" />
-    <option name="LAST_COMMIT_MESSAGE" value="SAE GUI (import file)" />
+    <MESSAGE value="SAE debut socket" />
+    <option name="LAST_COMMIT_MESSAGE" value="SAE debut socket" />
   </component>
 </project>

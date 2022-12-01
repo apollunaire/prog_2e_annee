@@ -179,6 +179,7 @@ class MainWindow(QMainWindow):
 
 
     def __actionCMM(self):
+        os_txt = get_OS(self.__choixM.currentText())
         try :
             val = self.__entreeCmm.text()
             n = [True for k in val if k == ":"]
@@ -189,9 +190,18 @@ class MainWindow(QMainWindow):
                 cmm = tmp[2:-2]
                 print(cmm)
                 k = f"{shell};{cmm}"
-                rep = os.popen(cmd=k)
-                k = (rep.read())
-                self.__sortieCmm.setText(f"{k}")
+                print(os_txt.lower())
+                if (("darwin" in os_txt.lower()) and ("linux" or "powershell" in shell.lower())) \
+                    or ("window" in os_txt.lower() and ("powershell" in shell.lower())) \
+                        or ("linux" in os_txt.lower() and (("powershell" in shell.lower() or "dos" in shell.lower()))):
+                    print(True)
+                    rep = os.popen(cmd=k)
+                    k = (rep.read())
+                    self.__sortieCmm.setText(f"{k}")
+                else:
+                    self.__sortieCmm.setText("la commande est soit erronnée soit impossible à executer sur ce système")
+                    return -1
+
             else:
                 rep = os.popen(cmd=val)
                 k = str(rep.read())
