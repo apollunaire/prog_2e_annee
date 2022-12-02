@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE tests socket + test os sur cmd GUI">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="EXAM" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +25,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/SAE/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -256,6 +254,7 @@
     <MESSAGE value="SAE GUI (import file)" />
     <MESSAGE value="SAE debut socket" />
     <MESSAGE value="SAE tests socket + test os sur cmd GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="SAE tests socket + test os sur cmd GUI" />
+    <MESSAGE value="EXAM" />
+    <option name="LAST_COMMIT_MESSAGE" value="EXAM" />
   </component>
 </project>
