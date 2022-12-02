@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE debut socket">
-      <change afterPath="$PROJECT_DIR$/SAE/client_asy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SAE/serv_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SAE/srv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SAE/test/client_thread.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SAE/test/newGUI.py" afterDir="false" />
+    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE tests socket + test os sur cmd GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE/test/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE/test/serv_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE/test/serv_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/serv_monitor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/test.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669900443136</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="SAE tests socket + test os sur cmd GUI">
+      <created>1669911976358</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669911976359</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +255,7 @@
     <MESSAGE value="TD SAE" />
     <MESSAGE value="SAE GUI (import file)" />
     <MESSAGE value="SAE debut socket" />
-    <option name="LAST_COMMIT_MESSAGE" value="SAE debut socket" />
+    <MESSAGE value="SAE tests socket + test os sur cmd GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="SAE tests socket + test os sur cmd GUI" />
   </component>
 </project>
