@@ -6,6 +6,7 @@ from PyQt5.QtGui import QPalette, QColor
 import subprocess
 import csv
 import os
+from comm.client_asyn import Client
 
 
 class Color(QWidget):
@@ -123,7 +124,8 @@ class MainWindow(QMainWindow):
         self.__bKill.clicked.connect(self.__actionKill)
         self.__bfile.clicked.connect(self.__actionFile)
         self.__bOK.clicked.connect(self.__actionOK)
-        #self.__choix.currentIndexChanged.connect(self.__testValeur)
+
+        self.__choixM.currentTextChanged.connect(self.__crea_thread)
 
 
         #reglages fenêtre
@@ -275,6 +277,14 @@ class MainWindow(QMainWindow):
         except (FileNotFoundError, FileExistsError):
             self.__file.setText("ERR - le fichier n'a pas été trouvé")
             return -1
+
+    def __crea_thread(self):
+        val = self.__choixM.currentText()
+        client = Client(val, 15001)
+        #client.connect()
+        #client.dialogue()
+        #print("thread ok")
+        return 0
 
 
 if __name__ == '__main__':
