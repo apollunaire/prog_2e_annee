@@ -4,7 +4,7 @@ def serveur():
     msg = ""
     conn = None
     server_socket = None
-    while msg != "kill" :
+    while msg != "kill":
         msg = ""
         server_socket = socket.socket()
         """ options qui permette de réutiliser l'adresse et le port rapidement"""

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="EXAM">
-      <change afterPath="$PROJECT_DIR$/SAE/test/comm/client_asyn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SAE/test/comm/serv_simple.py" afterDir="false" />
+    <list default="true" id="1898c597-9077-4b1e-8635-074423144fdb" name="Changes" comment="SAE GUI+socket">
+      <change afterPath="$PROJECT_DIR$/SAE/test/comm/GUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAE/test/newGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/newGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAE/test/comm/client_asyn.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/comm/client_asyn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAE/test/comm/serv_simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/SAE/test/comm/serv_simple.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +30,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SAE/test/comm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\SAE\test\comm" />
       <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee" />
       <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\SAE\test" />
       <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\Socket" />
@@ -43,8 +44,8 @@
       <recent name="C:\Users\tipha\Documents\IUT COLMAR\R309\prog_2e_annee\SAE\test" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.newGUI">
-    <configuration name="client_thread" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.GUI">
+    <configuration name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="prog_2e_annee" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -52,11 +53,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SAE/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SAE/test/comm" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/test/client_thread.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SAE/test/comm/GUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GUI" />
         <item itemvalue="Python.newGUI" />
         <item itemvalue="Python.ex2" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.serv_monitor" />
-        <item itemvalue="Python.client_thread" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669978604755</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="SAE GUI+socket">
+      <created>1670786743701</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670786743701</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,6 +283,7 @@
     <MESSAGE value="SAE debut socket" />
     <MESSAGE value="SAE tests socket + test os sur cmd GUI" />
     <MESSAGE value="EXAM" />
-    <option name="LAST_COMMIT_MESSAGE" value="EXAM" />
+    <MESSAGE value="SAE GUI+socket" />
+    <option name="LAST_COMMIT_MESSAGE" value="SAE GUI+socket" />
   </component>
 </project>
