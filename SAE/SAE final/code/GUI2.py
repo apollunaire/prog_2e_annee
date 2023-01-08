@@ -31,9 +31,9 @@ class MainWindow(QMainWindow):
         self.__bName = QPushButton("Nom") #label name
         self.__bALL = QPushButton("ALL INFO") #label all info
         self.__sortieB = QTextEdit("") #textedit pour sortie des commandes simples
-        self.__sortieB.setDisabled(True) #impossible à modifier pour l'utilisateur.ice
+        self.__sortieB.setReadOnly(True) #impossible à modifier pour l'utilisateur.ice
         self.__sortieCmm = QTextEdit("") #textedit pour sortie des commandes de l'utilisateur.ice
-        self.__sortieCmm.setDisabled(True) #impossible à modifier
+        self.__sortieCmm.setReadOnly(True) #impossible à modifier
         self.__bKill = QPushButton("KILL") #bouton kill
         self.__bDisc = QPushButton("DISCONNECT") #bouton disconnect
         self.__bReset = QPushButton("RESET") #bouton reset
